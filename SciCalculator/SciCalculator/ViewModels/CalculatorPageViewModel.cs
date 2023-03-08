@@ -1,4 +1,6 @@
-﻿namespace SciCalculator.ViewModels
+﻿using System;
+
+namespace SciCalculator.ViewModels
 {
     [INotifyPropertyChanged]
     internal partial class CalculatorPageViewModel //: ObservableObject, INotifyPropertyChanged
@@ -43,11 +45,14 @@
             try
             {
                 var inputString = NormalizeInputString();
-            }
-            catch (Exception)
-            {
+                var expression = new Expression(inputString);
+                var result = expression.Evaluate();
 
-                throw;
+                CalculatedResult = result.ToString();
+            }
+            catch (Exception ex)
+            {
+                CalculatedResult = "NaN";
             }
         }
 
