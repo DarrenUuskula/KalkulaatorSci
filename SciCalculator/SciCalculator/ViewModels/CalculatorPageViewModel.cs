@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace SciCalculator.ViewModels
 {
     [INotifyPropertyChanged]
     internal partial class CalculatorPageViewModel //: ObservableObject, INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
+        //public event PropertyChangedEventHandler PropertyChanged;
 
         [ObservableProperty]
         private string inputText = string.Empty;
